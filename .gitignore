@@ -1,0 +1,4 @@
+*.bak
+*_pcb-bak
+*-cache.lib
+
