@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--*****************************************-->
+<!--   File    : lab.fsproj                  -->
+<!--   Format  : TopoR Project file          -->
+<!--   Version : 2                           -->
+<!--   Program : TopoR Lite 7.0.18578        -->
+<!--   Date    : Saturday, February 09, 2019 -->
+<!--   Time    : 21:54                       -->
+<!--*****************************************-->
+
+<Project>
+   <Version current="2"/>
+   <GUID>{4A587990-8A41-4546-8DB5-2B7DACE2A779}</GUID>
+   <Documents>
+      <Section name="PCB" isExpanded="false">
+         <File path=".\lab.fsx" isopened="0" dateChange="2019-02-09 20:47:46"/>
+      </Section>
+      <Section name="AutoRouting" isExpanded="false">
+         <File path=".\autoroute_190209210832\lab_504-2sa.fsb" isopened="0" dateChange="2019-02-09 21:08:50"/>
+         <File path=".\autoroute_190209215310\lab_519-2sa.fsb" isopened="0" dateChange="2019-02-09 21:53:25"/>
+         <File path=".\autoroute_190209211821\lab_531-2sa.fsb" isopened="0" dateChange="2019-02-09 21:18:25"/>
+         <File path=".\autoroute_190209213259\lab_548-2sa.fsb" isopened="0" dateChange="2019-02-09 21:33:52"/>
+         <File path=".\autoroute_190209211221\lab_555-4sa.fsb" isopened="0" dateChange="2019-02-09 21:12:25"/>
+         <File path=".\autoroute_190209211535\lab_559-4sa.fsb" isopened="0" dateChange="2019-02-09 21:15:38"/>
+         <File path=".\autoroute_190209215135\lab_600-0sa.fsb" isopened="0" dateChange="2019-02-09 21:52:06"/>
+         <File path=".\autoroute_190209211324\lab_605-4sa.fsb" isopened="0" dateChange="2019-02-09 21:13:31"/>
+         <File path=".\autoroute_190209210147\lab_648-4sa.fsb" isopened="0" dateChange="2019-02-09 21:02:58"/>
+         <File path=".\autoroute_190209212337\lab_650-4sa.fsb" isopened="0" dateChange="2019-02-09 21:23:52"/>
+         <File path=".\autoroute_190209212136\lab_733-6sa.fsb" isopened="0" dateChange="2019-02-09 21:21:48"/>
+      </Section>
+   </Documents>
+   <Import>
+      <Specctra>
+         <Path name="E:\tmp\lab\lab\lab.dsn"/>
+      </Specctra>
+   </Import>
+</Project>
