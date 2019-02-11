@@ -1,4 +1,6 @@
 *.bak
 *_pcb-bak
 *-cache.lib
+autoroute_*
+*.lock
 
