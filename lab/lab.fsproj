@@ -5,7 +5,7 @@
 <!--   Version : 2                         -->
 <!--   Program : TopoR Lite 7.0.18578      -->
 <!--   Date    : Monday, February 11, 2019 -->
-<!--   Time    : 09:19                     -->
+<!--   Time    : 19:25                     -->
 <!--***************************************-->
 
 <Project>
@@ -13,28 +13,23 @@
    <GUID>{4A587990-8A41-4546-8DB5-2B7DACE2A779}</GUID>
    <Documents>
       <Section name="PCB" isExpanded="true">
-         <File path=".\lab.fsx" isopened="0" dateChange="2019-02-10 02:03:05"/>
+         <File path=".\lab.fsx" isopened="0" dateChange="2019-02-11 17:40:02"/>
       </Section>
       <Section name="AutoRouting" isExpanded="true">
-         <File path=".\autoroute_190211091746\lab_673-6sa.fsb" isopened="0" dateChange="2019-02-11 09:18:19"/>
-         <File path=".\autoroute_190211091506\lab_728-6sa.fsb" isopened="0" dateChange="2019-02-11 09:15:31"/>
-         <File path=".\autoroute_190211091203\lab_748-4sa.fsb" isopened="0" dateChange="2019-02-11 09:12:27"/>
-         <File path=".\autoroute_190210012241\lab_810-6s.fsb" isopened="0" dateChange="2019-02-10 01:23:06"/>
-         <File path=".\autoroute_190210014004\lab_954-14sa.fsb" isopened="0" dateChange="2019-02-10 01:41:23"/>
-         <File path=".\autoroute_190210013732\lab_965-10s.fsb" isopened="0" dateChange="2019-02-10 01:38:02"/>
-         <File path=".\autoroute_190211090649\lab_1009-12sa.fsb" isopened="0" dateChange="2019-02-11 09:07:26"/>
-         <File path=".\autoroute_190210013428\lab_1046-8s.fsb" isopened="0" dateChange="2019-02-10 01:35:23"/>
-         <File path=".\autoroute_190210020138\lab_1186-20sa.fsb" isopened="0" dateChange="2019-02-10 02:02:20"/>
-         <File path=".\autoroute_190210014327\lab_1266-24sa.fsb" isopened="0" dateChange="2019-02-10 01:44:11"/>
-         <File path=".\autoroute_190210015842\lab_1698-22sa.fsb" isopened="0" dateChange="2019-02-10 01:59:36"/>
-         <File path=".\autoroute_190211090257\lab_1704-32sa.fsb" isopened="0" dateChange="2019-02-11 09:03:34"/>
-         <File path=".\autoroute_190211091933\lab_677-6sa.fsb" isopened="0" dateChange="2019-02-11 09:19:41"/>
+         <File path=".\autoroute_190211185010\lab_806-6s.fsb" isopened="0" dateChange="2019-02-11 18:53:27"/>
+         <File path=".\autoroute_190211184217\lab_827-4s.fsb" isopened="0" dateChange="2019-02-11 18:45:31"/>
+         <File path=".\autoroute_190211185656\lab_864-6s.fsb" isopened="0" dateChange="2019-02-11 18:59:37"/>
+         <File path=".\autoroute_190211181726\lab_884-6s.fsb" isopened="0" dateChange="2019-02-11 18:24:03"/>
+         <File path=".\autoroute_190211184745\lab_886-4s.fsb" isopened="0" dateChange="2019-02-11 18:48:08"/>
+         <File path=".\autoroute_190211183237\lab_918-12s.fsb" isopened="0" dateChange="2019-02-11 18:36:09"/>
+         <File path=".\autoroute_190211190238\lab_977-6s.fsb" isopened="0" dateChange="2019-02-11 19:02:49"/>
       </Section>
    </Documents>
    <Import>
       <Specctra>
          <Path name="E:\tmp\lab\lab\lab.dsn"/>
          <Path name="H:\projects\hard\hw-lab-oa-etc\lab\lab.dsn"/>
+         <Path name="E:\projects\hard\hw-lab-opa\lab\lab.dsn"/>
       </Specctra>
    </Import>
 </Project>
