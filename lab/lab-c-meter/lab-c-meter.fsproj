@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--******************************************-->
+<!--   File    : lab-c-meter.fsproj           -->
+<!--   Format  : TopoR Project file           -->
+<!--   Version : 2                            -->
+<!--   Program : TopoR Lite 7.0.18578         -->
+<!--   Date    : Wednesday, February 27, 2019 -->
+<!--   Time    : 21:10                        -->
+<!--******************************************-->
+
+<Project>
+   <Version current="2"/>
+   <GUID>{DF5B3372-BA0D-41E7-8D91-56A09DCA23B2}</GUID>
+   <Documents>
+      <Section name="PCB" isExpanded="true">
+         <File path=".\lab-c-meter.fsx" isopened="1" dateChange="2019-02-27 19:59:19"/>
+      </Section>
+      <Section name="AutoRouting" isExpanded="true">
+         <File path=".\autoroute_190227210152\lab-c-meter_1283-10s.fsb" isopened="0" dateChange="2019-02-27 21:02:00"/>
+         <File path=".\autoroute_190227210435\lab-c-meter_1307-10s.fsb" isopened="0" dateChange="2019-02-27 21:05:17"/>
+         <File path=".\autoroute_190227205944\lab-c-meter_1353-10s.fsb" isopened="0" dateChange="2019-02-27 21:00:00"/>
+         <File path=".\autoroute_190227203930\lab-c-meter_1369-10s.fsb" isopened="0" dateChange="2019-02-27 20:39:59"/>
+         <File path=".\autoroute_190227204234\lab-c-meter_1375-14s.fsb" isopened="0" dateChange="2019-02-27 20:43:10"/>
+         <File path=".\autoroute_190227203801\lab-c-meter_1381-16s.fsb" isopened="0" dateChange="2019-02-27 20:38:25"/>
+         <File path=".\autoroute_190227202841\lab-c-meter_1400-16s.fsb" isopened="0" dateChange="2019-02-27 20:29:06"/>
+         <File path=".\autoroute_190227204629\lab-c-meter_1401-8s.fsb" isopened="0" dateChange="2019-02-27 20:46:50"/>
+         <File path=".\autoroute_190227210331\lab-c-meter_1409-12s.fsb" isopened="0" dateChange="2019-02-27 21:03:56"/>
+         <File path=".\autoroute_190227204847\lab-c-meter_1418-12s.fsb" isopened="0" dateChange="2019-02-27 20:49:44"/>
+         <File path=".\autoroute_190227210741\lab-c-meter_1440-16s.fsb" isopened="0" dateChange="2019-02-27 21:08:36"/>
+         <File path=".\autoroute_190227205131\lab-c-meter_1440-18s.fsb" isopened="0" dateChange="2019-02-27 20:52:07"/>
+         <File path=".\autoroute_190227204447\lab-c-meter_1462-10s.fsb" isopened="0" dateChange="2019-02-27 20:45:12"/>
+         <File path=".\autoroute_190227203210\lab-c-meter_1499-16s.fsb" isopened="0" dateChange="2019-02-27 20:32:31"/>
+         <File path=".\autoroute_190227205558\lab-c-meter_1513-14s.fsb" isopened="0" dateChange="2019-02-27 20:56:22"/>
+         <File path=".\autoroute_190227210603\lab-c-meter_1514-8s.fsb" isopened="0" dateChange="2019-02-27 21:06:32"/>
+         <File path=".\autoroute_190227202549\lab-c-meter_1536-18s.fsb" isopened="0" dateChange="2019-02-27 20:26:24"/>
+         <File path=".\autoroute_190227200546\lab-c-meter_1566-12s.fsb" isopened="0" dateChange="2019-02-27 20:07:02"/>
+         <File path=".\autoroute_190227205710\lab-c-meter_1580-16s.fsb" isopened="0" dateChange="2019-02-27 20:57:20"/>
+         <File path=".\autoroute_190227205754\lab-c-meter_1582-14s.fsb" isopened="0" dateChange="2019-02-27 20:58:22"/>
+         <File path=".\autoroute_190227205317\lab-c-meter_1594-14s.fsb" isopened="0" dateChange="2019-02-27 20:53:45"/>
+         <File path=".\autoroute_190227201045\lab-c-meter_1601-16s.fsb" isopened="0" dateChange="2019-02-27 20:11:24"/>
+         <File path=".\autoroute_190227203514\lab-c-meter_1643-16s.fsb" isopened="0" dateChange="2019-02-27 20:35:51"/>
+         <File path=".\autoroute_190227203644\lab-c-meter_1772-14s.fsb" isopened="0" dateChange="2019-02-27 20:36:46"/>
+         <File path=".\autoroute_190227201327\lab-c-meter_1948-18s.fsb" isopened="0" dateChange="2019-02-27 20:13:37"/>
+      </Section>
+   </Documents>
+   <Import>
+      <Specctra>
+         <Path name="Z:\projects\hard\hw-lab-oa-etc\lab\lab-c-meter.dsn"/>
+      </Specctra>
+   </Import>
+</Project>
