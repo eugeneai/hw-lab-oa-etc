@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:lab-c-meter-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -277,7 +276,7 @@ U 1 1 5C77CE38
 P 1100 2950
 F 0 "R1" V 1000 2850 50  0000 C CNN
 F 1 "0.33 0.5W" V 1200 3000 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Vertical" V 1030 2950 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0414_L11.9mm_D4.5mm_P15.24mm_Horizontal" V 1030 2950 50  0001 C CNN
 F 3 "~" H 1100 2950 50  0001 C CNN
 	1    1100 2950
 	0    1    1    0   
@@ -499,7 +498,7 @@ U 1 1 5C762EA0
 P 4950 4200
 F 0 "J4" H 5005 4667 50  0000 C CNN
 F 1 "USB_B_Mini" H 5005 4576 50  0000 C CNN
-F 2 "Connector_USB:USB_Micro-B_Wuerth_629105150521_CircularHoles" H 5100 4150 50  0001 C CNN
+F 2 "local:USB-mini-S2126.12010-Circular" H 5100 4150 50  0001 C CNN
 F 3 "~" H 5100 4150 50  0001 C CNN
 	1    4950 4200
 	1    0    0    -1  
@@ -732,7 +731,7 @@ U 1 1 5C774228
 P 5500 4550
 F 0 "D6" V 5454 4629 50  0000 L CNN
 F 1 "3v6" V 5545 4629 50  0000 L CNN
-F 2 "Diode_THT:D_5W_P5.08mm_Vertical_KathodeUp" H 5500 4550 50  0001 C CNN
+F 2 "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp" H 5500 4550 50  0001 C CNN
 F 3 "~" H 5500 4550 50  0001 C CNN
 	1    5500 4550
 	0    1    1    0   
@@ -743,7 +742,7 @@ U 1 1 5C77430F
 P 5850 4550
 F 0 "D7" V 5804 4629 50  0000 L CNN
 F 1 "3v6" V 5895 4629 50  0000 L CNN
-F 2 "Diode_THT:D_5W_P5.08mm_Vertical_KathodeUp" H 5850 4550 50  0001 C CNN
+F 2 "Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp" H 5850 4550 50  0001 C CNN
 F 3 "~" H 5850 4550 50  0001 C CNN
 	1    5850 4550
 	0    1    1    0   
@@ -887,17 +886,6 @@ F 3 "" H 8950 3450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Regulator_Linear:L7805 U2
-U 1 1 5C786735
-P 2200 5200
-F 0 "U2" H 2200 5442 50  0000 C CNN
-F 1 "L7805" H 2200 5351 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-92S" H 2225 5050 50  0001 L CIN
-F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf" H 2200 5150 50  0001 C CNN
-	1    2200 5200
-	1    0    0    -1  
-$EndComp
-$Comp
 L pspice:DIODE D5
 U 1 1 5C786986
 P 1550 5200
@@ -914,7 +902,7 @@ U 1 1 5C786BD4
 P 900 5300
 F 0 "J2" H 955 5617 50  0000 C CNN
 F 1 "Barrel_Jack_Switch" H 955 5526 50  0000 C CNN
-F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-102AH_Horizontal" H 950 5260 50  0001 C CNN
+F 2 "local:Barrel-little-11mm-x-5mm" H 950 5260 50  0001 C CNN
 F 3 "~" H 950 5260 50  0001 C CNN
 	1    900  5300
 	1    0    0    -1  
@@ -1165,4 +1153,15 @@ Text GLabel 1850 4800 2    50   Input ~ 0
 VIN
 Text GLabel 3250 5100 0    50   Input ~ 0
 VIN
+$Comp
+L Regulator_Linear:L78L05_TO92 U2
+U 1 1 5C77BF7D
+P 2200 5200
+F 0 "U2" H 2200 5442 50  0000 C CNN
+F 1 "L78L05_TO92" H 2200 5351 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92_HandSolder" H 2200 5425 50  0001 C CIN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/15/55/e5/aa/23/5b/43/fd/CD00000446.pdf/files/CD00000446.pdf/jcr:content/translations/en.CD00000446.pdf" H 2200 5150 50  0001 C CNN
+	1    2200 5200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
