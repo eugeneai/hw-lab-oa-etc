@@ -212,7 +212,7 @@ U 1 1 5C76D200
 P 3300 1250
 F 0 "C3" V 3150 1050 50  0000 C CNN
 F 1 "220u 6.3V" V 3500 1100 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 3338 1100 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 3338 1100 50  0001 C CNN
 F 3 "~" H 3300 1250 50  0001 C CNN
 	1    3300 1250
 	1    0    0    -1  
@@ -223,7 +223,7 @@ U 1 1 5C76D535
 P 3300 950
 F 0 "C2" V 3450 950 50  0000 C CNN
 F 1 "220u 6.3V" V 3100 1100 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 3338 800 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 3338 800 50  0001 C CNN
 F 3 "~" H 3300 950 50  0001 C CNN
 	1    3300 950 
 	1    0    0    -1  
@@ -536,7 +536,7 @@ Text GLabel 6650 4300 2    50   Input ~ 0
 D-
 Text GLabel 8050 2950 2    50   Input ~ 0
 D+
-Text GLabel 8050 3050 2    50   Input ~ 0
+Text GLabel 8050 3350 2    50   Input ~ 0
 D-
 $Comp
 L power:GNDD #PWR0101
@@ -793,7 +793,7 @@ L Switch:SW_Push SW1
 U 1 1 5C77C373
 P 6550 1000
 F 0 "SW1" H 6550 1285 50  0000 C CNN
-F 1 "SW_Push" H 6550 1194 50  0000 C CNN
+F 1 "RST" H 6550 1194 50  0000 C CNN
 F 2 "Button_Switch_THT:SW_PUSH_6mm" H 6550 1200 50  0001 C CNN
 F 3 "" H 6550 1200 50  0001 C CNN
 	1    6550 1000
@@ -822,7 +822,7 @@ U 1 1 5C77E1A4
 P 1500 1150
 F 0 "C5" V 1350 950 50  0000 C CNN
 F 1 "4u7 6.3V" V 1700 1000 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 1538 1000 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 1538 1000 50  0001 C CNN
 F 3 "~" H 1500 1150 50  0001 C CNN
 	1    1500 1150
 	1    0    0    -1  
@@ -869,7 +869,7 @@ L Switch:SW_Push SW2
 U 1 1 5C784248
 P 8750 3450
 F 0 "SW2" H 8750 3735 50  0000 C CNN
-F 1 "SW_Push" H 8750 3644 50  0000 C CNN
+F 1 "BLD" H 8750 3644 50  0000 C CNN
 F 2 "Button_Switch_THT:SW_PUSH_6mm" H 8750 3650 50  0001 C CNN
 F 3 "" H 8750 3650 50  0001 C CNN
 	1    8750 3450
@@ -914,7 +914,7 @@ U 1 1 5C786E8A
 P 1750 5350
 F 0 "C6" V 1600 5150 50  0000 C CNN
 F 1 "4u7 6.3V" V 1950 5200 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 1788 5200 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 1788 5200 50  0001 C CNN
 F 3 "~" H 1750 5350 50  0001 C CNN
 	1    1750 5350
 	1    0    0    -1  
@@ -1039,17 +1039,13 @@ Text GLabel 8450 3600 3    50   Input ~ 0
 PD7
 Text GLabel 9700 3450 0    50   Input ~ 0
 PD7
-Text GLabel 8050 3350 2    50   Input ~ 0
-PD6
-Text GLabel 9700 3350 0    50   Input ~ 0
-PD6
 Text GLabel 9700 3250 0    50   Input ~ 0
 CNT
 Text GLabel 8050 3150 2    50   Input ~ 0
 PD4
 Text GLabel 9700 3150 0    50   Input ~ 0
 PD4
-Text GLabel 9700 3050 0    50   Input ~ 0
+Text GLabel 9700 3350 0    50   Input ~ 0
 D-
 Text GLabel 9700 2950 0    50   Input ~ 0
 D+
@@ -1096,9 +1092,9 @@ F 3 "~" H 9900 2250 50  0001 C CNN
 	1    9900 2250
 	1    0    0    -1  
 $EndComp
-Text GLabel 9700 2550 0    50   Input ~ 0
-ADC6
 Text GLabel 9700 2650 0    50   Input ~ 0
+ADC6
+Text GLabel 9700 2550 0    50   Input ~ 0
 ADC7
 Text GLabel 6850 2150 0    50   Input ~ 0
 ADC6
@@ -1200,4 +1196,8 @@ Wire Wire Line
 	6800 1050 6800 1000
 Text GLabel 6900 1050 2    50   Input ~ 0
 ~RESET
+Text GLabel 9700 3050 0    50   Input ~ 0
+PD3
+Text GLabel 8050 3050 2    50   Input ~ 0
+PD3
 $EndSCHEMATC
