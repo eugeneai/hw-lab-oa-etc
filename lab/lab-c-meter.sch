@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:lab-c-meter-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -801,7 +802,7 @@ $EndComp
 Wire Wire Line
 	6850 1350 6800 1350
 Wire Wire Line
-	6800 1350 6800 1000
+	6800 1350 6800 1050
 Wire Wire Line
 	6800 1000 6750 1000
 $Comp
@@ -1022,13 +1023,11 @@ Wire Wire Line
 Wire Wire Line
 	8050 1450 8700 1450
 Wire Wire Line
-	8700 1550 8050 1550
+	8700 1550 8300 1550
 Wire Wire Line
-	8050 1650 8700 1650
+	8700 1750 8100 1750
 Wire Wire Line
-	8700 1750 8050 1750
-Wire Wire Line
-	8050 1850 8700 1850
+	8050 1850 8400 1850
 Wire Wire Line
 	8450 3450 8450 3600
 Wire Wire Line
@@ -1164,4 +1163,41 @@ F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/15/55/e
 	1    2200 5200
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8100 1750 8100 1300
+Connection ~ 8100 1750
+Wire Wire Line
+	8100 1750 8050 1750
+Text GLabel 8100 1300 1    50   Input ~ 0
+MISO
+Text GLabel 8200 1300 1    50   Input ~ 0
+MOSI
+Wire Wire Line
+	8200 1300 8200 1650
+Wire Wire Line
+	8050 1650 8200 1650
+Connection ~ 8200 1650
+Wire Wire Line
+	8200 1650 8700 1650
+Text GLabel 8300 1300 1    50   Input ~ 0
+SS
+Wire Wire Line
+	8300 1300 8300 1550
+Connection ~ 8300 1550
+Wire Wire Line
+	8300 1550 8050 1550
+Text GLabel 8400 1300 1    50   Input ~ 0
+SCK
+Wire Wire Line
+	8400 1300 8400 1850
+Connection ~ 8400 1850
+Wire Wire Line
+	8400 1850 8700 1850
+Wire Wire Line
+	6800 1050 6900 1050
+Connection ~ 6800 1050
+Wire Wire Line
+	6800 1050 6800 1000
+Text GLabel 6900 1050 2    50   Input ~ 0
+~RESET
 $EndSCHEMATC
