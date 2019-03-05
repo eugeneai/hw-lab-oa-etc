@@ -43,13 +43,13 @@ FILE uart_input = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
 //FILE uart_io FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
 
 
-
 int main() {
   uart_init();
   stdout = &uart_output;
   stdin  = &uart_input;
   DDRB |= 1 << LED_PIN;
   while(1) {
+    printf("Hello world\n");
     PORTB |= 1 << LED_PIN;
     _delay_ms(1000);
     PORTB &= ~(1 << LED_PIN);
