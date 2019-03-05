@@ -47,55 +47,119 @@ FILE uart_input = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
 //FILE uart_io FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
 
 
-unsigned long int total = 0;
+unsigned long int total = 0, time=0, ticks = 0;
+unsigned int ovfls = 0;
 
-ISR(TIMER1_OVF_vect) { // Time1 overflow
-  total += 65536;
-  TIFR1 |= (1<<TOV1); // Clear overflow flag;
+// unsigned long period=0; // TODO: store it in PROGMEM
+
+#define PERIOD 61
+
+void timer_tick() {
+  // run each period timer ticks
+  ticks++;
+}
+
+ISR(TIMER5_OVF_vect) { // Time1 overflow
+  PORTB ^= 1<<7;
+  ovfls++;
+  TIFR5 |= (1<<TOV5); // Clear overflow flag;
 }
 
 int int_cnt = 0;
 
-ISR(TIMER3_OVF_vect) { // Time1 overflow
-  unsigned int part;
+unsigned int part;
+
+ISR(TIMER0_OVF_vect) { // Time1 overflow
   unsigned char sreg;
 
-  /* Сохранение флага глобального прерывания */
-  sreg = SREG;
-  /* Запрет прерываний */
-  cli();
-  /* Read TCNT1 into i */
-  part = TCNT1;
-  TCNT1 = 0;
-  /* Восстановление флага глобального прерывания */
-  SREG = sreg;
 
-  total += part;
 
-  if (int_cnt++ >= 239) {
-    printf("Count: %lu\n", total);
-    int_cnt = 0;
+  /* /\* Сохранение флага глобального прерывания *\/ */
+  /* sreg = SREG; */
+  /* /\* Запрет прерываний *\/ */
+  /* cli(); */
+  part = TCNT5;
+  /* TCNT5 = 0; */
+  /* /\* Восстановление флага глобального прерывания *\/ */
+  /* SREG = sreg; */
+
+  /* total += part; */
+
+  TIFR0 |= (1<<TOV0); // clear overflow flag
+
+  time++;
+  if (PERIOD!=0) {
+    if (time>=PERIOD) {
+      timer_tick();
+      time = 0;
+    }
   }
+
+  /* if (int_cnt++ >= 239) { */
+  /*   printf("Count: %lu\n", total); */
+  /*   int_cnt = 0; */
+  /* } */
 }
 
 void timer_init() {
-  TCCR1B = (1<<CS12)|(1<<CS11);
-  TIMSK1 |= (1<<TOIE1); // Enable Overflow interrupt for Counter1.
+  TCCR5B = (1<<CS12)|(1<<CS11);
+  TIMSK5 |= (1<<TOIE5); // Enable Overflow interrupt for Counter5.
 
-  TCCR3B = (1<<CS12)|(1<<CS10);
-  TIMSK3 |= (1<<TOIE1); // Enable Overflow interrupt for Counter3.
+  TCCR0B |= (1<<CS02)|(1<<CS00);
+  //0B
+  TIMSK0 |= (1<<TOIE0); // Enable Overflow interrupt for Counter0 (8bit).
+  //TIFR0
+  sei();
 };
+
+#define STEPS 5000
 
 int main() {
   uart_init();
   timer_init();
-  sei();
+
   stdout = &uart_output;
   stdin  = &uart_input;
+  // TEST
+  //DDRL  = 0x00;
+  //PORTL = 0x00;
+  //DDRD |= 1<<6;
+
+  DDRB |= 1<<7;
+  // PORTB ^= 1<<7;
+
+  total = 0;
+
+  char prev = 0, curr;
+  long int c = 0;
+  total = ovfls*65536 + part;
+  long int pp = total;
+
+  printf("Starting:\n");
   for (;;)  {
-    printf("Count:");
-    // delay(100);
-    sleep_mode();
+    /* curr = PINL & 1<<2; */
+    /* if (prev!=curr) { */
+    /*   total++; */
+    /*   c++; */
+    /*   prev=curr; */
+    /* } */
+    //if (c>=STEPS) {
+    total = ovfls*65536 + part;
+    printf("Count: %lu (+%lu / sec) time: %lu ", total, (total-pp) >> 2,ticks);
+      /* printf("SREG: %x ", SREG); */
+      /* printf("TCCR0A: %x ", TCCR0A); */
+      /* printf("TIMSK0: %x ", TIMSK0); */
+      /* printf("TCNT0: %x ", TCNT0); */
+      /* printf("TIFR0: %x ", TIFR0); */
+      printf("TCNT5: %u ", TCNT5);
+
+      printf("\n");
+      pp=total;
+      c=0;
+      // PORTB ^= 1<<7;
+      //}
+    _delay_ms 	(4000);
+    // sleep_mode();
   }
   return 0;
 }
