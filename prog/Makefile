@@ -1,21 +1,24 @@
 #Контроллер, установленный на плате. Может быть другим, например atmega328
 # DEVICE     = atmega168
 
-DEVICE     = atmega2560
+# DEVICE     = atmega2560
 # DEVICE     = atmega8
 
 #Тактовая частота 16 МГц
 CLOCK      = 16000000
 
 #Команда запуска avrdude. Ее нужно скопировать из Arduino IDE.
+
 AVRDUDE = sudo avrdude -v -c wiring -P `ls /dev/ttyA*` -p $(DEVICE) -b115200 -D
+USBASP = sudo avrdude -v -c usbasp -p $(DEVICE) 
+
 # //bin/avrdude -C//etc/avrdude.conf -v -patmega2560 -cwiring -P/dev/ttyACM0 -b115200 -D -Uflash:w:/tmp/arduino_build_439882/sketch_mar05a.ino.hex:i
 
-OBJECTS    = freqmeter.o
+OBJECTS    = $(TARGET).o
 
 COMPILE = avr-gcc -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
 
-all:	freqmeter.hex
+all:	$(TARGET).hex
 
 .c.o:
 	$(COMPILE) -c $< -o $@
@@ -27,18 +30,21 @@ all:	freqmeter.hex
 	$(COMPILE) -S $< -o $@
 
 flash:	all
-	$(AVRDUDE) -U flash:w:freqmeter.hex:i
+	$(AVRDUDE) -U flash:w:$(TARGET).hex:i
+
+asp: all
+	$(USBASP) -U flash:w:$(TARGET).hex:i
 
 readflash:
 	$(AVRDUDE) -U flash:r:read.hex:i
 
 clean:
-	rm -f freqmeter.hex freqmeter.elf $(OBJECTS)
+	rm -f $(TARGET).hex $(TARGET).elf $(OBJECTS)
 
-freqmeter.elf: $(OBJECTS)
-	$(COMPILE) -o freqmeter.elf $(OBJECTS)
+$(TARGET).elf: $(OBJECTS)
+	$(COMPILE) -o $(TARGET).elf $(OBJECTS)
 
-freqmeter.hex: freqmeter.elf
-	rm -f freqmeter.hex
-	avr-objcopy -j .text -j .data -O ihex freqmeter.elf freqmeter.hex
-	avr-size --format=avr --mcu=$(DEVICE) freqmeter.elf
+$(TARGET).hex: $(TARGET).elf
+	rm -f $(TARGET).hex
+	avr-objcopy -j .text -j .data -O ihex $(TARGET).elf $(TARGET).hex
+	avr-size --format=avr --mcu=$(DEVICE) $(TARGET).elf
