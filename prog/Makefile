@@ -10,7 +10,7 @@ CLOCK      = 16000000
 #Команда запуска avrdude. Ее нужно скопировать из Arduino IDE.
 
 AVRDUDE = sudo avrdude -v -c wiring -P `ls /dev/ttyA*` -p $(DEVICE) -b115200 -D
-USBASP = sudo avrdude -v -c usbasp -p $(DEVICE) 
+USBASP = sudo avrdude -v -c usbasp -p $(DEVICE)
 
 # //bin/avrdude -C//etc/avrdude.conf -v -patmega2560 -cwiring -P/dev/ttyACM0 -b115200 -D -Uflash:w:/tmp/arduino_build_439882/sketch_mar05a.ino.hex:i
 
@@ -48,3 +48,7 @@ $(TARGET).hex: $(TARGET).elf
 	rm -f $(TARGET).hex
 	avr-objcopy -j .text -j .data -O ihex $(TARGET).elf $(TARGET).hex
 	avr-size --format=avr --mcu=$(DEVICE) $(TARGET).elf
+
+
+flashuart:
+	make DEVICE=atmega8 TARGET=uart8 clean all asp

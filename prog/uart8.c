@@ -63,42 +63,64 @@ void uart_init()
     UBRRL = UBRRL_VALUE;
 }
 
-unsigned long int pulses = 0;
+union pulses_u {
+  struct {
+    unsigned int low, high;
+  } p;
+  unsigned long int all;
+} pulses;
+
 unsigned int time=0, ticks = 0;
-unsigned int ovfls = 0;
 
 // unsigned long period=0; // TODO: store it in PROGMEM
 
 #define PERIOD 61
 
+unsigned int get_part() {
+  unsigned int val;
+  unsigned char sreg;
+  sreg=SREG;
+  val = TCNT1;
+  SREG=sreg;
+  return val;
+}
+
+#define M_P_P 2
+
 void timer_tick() {
+  static unsigned char comm = 0;
+  static unsigned char mticks = 0;
+  static unsigned long int prev = 0, avg;
+
   // run each period timer ticks
   ticks++;
+  mticks++;
+  if (comm==0 && mticks >= (1<<M_P_P)) {
+    comm = 1;
+
+    mticks=0;
+    pulses.p.low = get_part();
+    avg = pulses.all - prev;
+    avg = avg >> M_P_P;
+    printf("CPS:%lu\n", avg);
+    prev=pulses.all;
+
+    comm = 0;
+  }
+
+
 }
 
 ISR(TIMER1_OVF_vect) { // Time1 overflow
   // PORTB ^= 1<<7;
-  ovfls++;
-  TIFR |= (1<<TOV0); // Clear overflow flag;
+  pulses.p.high++;
+  TIFR |= (1<<TOV1); // Clear overflow flag;
 }
 
 int int_cnt = 0;
 
-unsigned int part;
 
 ISR(TIMER0_OVF_vect) { // Time1 overflow
-  // unsigned char sreg;
-
-  /* /\* Сохранение флага глобального прерывания *\/ */
-  // sreg = SREG;
-  /* /\* Запрет прерываний *\/ */
-  // cli();
-  part = TCNT1;
-  /* TCNT5 = 0; */
-  /* /\* Восстановление флага глобального прерывания *\/ */
-  /* SREG = sreg; */
-
-  /* pulses += part; */
 
   TIFR |= (1<<TOV0); // clear overflow flag
 
@@ -128,6 +150,7 @@ void timer_init() {
 };
 
 #define STEPS 5000
+#define DELAY 1000
 
 int main() {
   uart_init();
@@ -143,34 +166,21 @@ int main() {
   // DDRB |= 1<<7;
   // PORTB ^= 1<<7;
 
-  pulses = 0;
 
-  pulses = ovfls*65536 + part;
-  long int pp = pulses;
+  unsigned long int pp = 0;
+
+  _delay_ms(DELAY);
 
   printf("Starting:\n");
-  for (;;)  {
-    /* curr = PINL & 1<<2; */
-    /* if (prev!=curr) { */
-    /*   pulses++; */
-    /*   c++; */
-    /*   prev=curr; */
-    /* } */
-    //if (c>=STEPS) {
-    pulses = ovfls*65536 + part;
-    printf("Count: %lu (+%lu / sec) time: %u ", pulses, (pulses-pp) >> 2,ticks);
-      /* printf("SREG: %x ", SREG); */
-      /* printf("TCCR0A: %x ", TCCR0A); */
-      /* printf("TIMSK0: %x ", TIMSK0); */
-      /* printf("TCNT0: %x ", TCNT0); */
-      /* printf("TIFR0: %x ", TIFR0); */
 
-      printf("\n");
-      pp=pulses;
-      // PORTB ^= 1<<7;
-      //}
-    _delay_ms 	(4000);
-    // sleep_mode();
+  for (;;)  {
+    /* pulses.p.low = get_part(); */
+    /* // printf("Count: o:%u %lu (+%lu / sec) time: %u ", pulses.p.high, pulses.all, (pulses.all-pp), ticks); */
+    /* printf("Count: o:%u %lu (pp =%lu) time: %u ", pulses.p.high, pulses.all, pp, ticks); */
+    /* printf("\n"); */
+    /* pp=pulses.all; */
+    /* _delay_ms(DELAY); */
+    sleep_mode();
   }
   return 0;
 }
